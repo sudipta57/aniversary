@@ -1,6 +1,5 @@
 // src/App.js
 import React, { useState } from "react";
-import Timer from "./component/Timer";
 import MainPage from "./component/MainPage";
 
 const App = () => {
