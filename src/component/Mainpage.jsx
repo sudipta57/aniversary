@@ -11,18 +11,20 @@ const MainPage = () => {
     const playAudio = async () => {
       try {
         await audioRef.current.play(); // Attempt to play the audio
-        setIsPlaying(true); // Update the state to reflect that the audio is playing
+        setIsPlaying(true); // Set the state to reflect that the audio is playing
       } catch (error) {
-        console.error("Error playing audio:", error); // Log any errors
+        console.error("Autoplay was prevented:", error); // Log if the autoplay is blocked
       }
     };
 
-    playAudio(); // Call the function to play audio
+    playAudio(); // Call the function to play audio when the component mounts
 
-    // Cleanup function to stop audio when component unmounts
+    // Cleanup function to stop audio when the component unmounts
     return () => {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0; // Reset audio to the beginning
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0; // Reset the audio
+      }
     };
   }, []);
 
@@ -102,6 +104,7 @@ const MainPage = () => {
             তোমার সাথে কাটানো প্রতিটি দিন আমার জীবনে একটি নতুন রং যোগ করে। এই
             সুন্দর যাত্রায় তোমার সাথে থাকার জন্য আমি চিরকাল কৃতজ্ঞ। ❤️
           </p>
+
           {/* Play/Pause Button */}
           <button
             onClick={toggleAudio}
@@ -123,7 +126,7 @@ const MainPage = () => {
               <img
                 src={im}
                 alt={`Memory ${index}`}
-                className="w-full h-[600px] sm:h-[350px] md:h-[400px] lg:h-[650px] object-cover rounded-lg"
+                className="w-full h-[600px] sm:h-[350px] md:h-[400px] lg:h-[500px] object-cover rounded-lg"
               />
             </div>
           ))}
