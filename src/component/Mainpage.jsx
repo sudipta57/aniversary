@@ -123,7 +123,7 @@ const MainPage = () => {
               <img
                 src={im}
                 alt={`Memory ${index}`}
-                className="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] object-cover rounded-lg"
+                className="w-full h-[600px] sm:h-[350px] md:h-[400px] lg:h-[650px] object-cover rounded-lg"
               />
             </div>
           ))}
