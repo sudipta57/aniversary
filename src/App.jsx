@@ -8,12 +8,7 @@ const App = () => {
 
   return (
     <div className="App">
-      {showMainPage ? (
-        <MainPage />
-      ) : (
-        <Timer setShowMainPage={setShowMainPage} />
-      )}
-      {/* <MainPage /> */}
+      <MainPage /> 
     </div>
   );
 };
